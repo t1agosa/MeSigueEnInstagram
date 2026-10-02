@@ -120,7 +120,7 @@ Es una web estática sin dependencias ni proceso de compilación: `index.html`, 
 - Para probarla en tu máquina, abrí `index.html` en el navegador o levantá un servidor simple, por ejemplo `python3 -m http.server`.
 - Para publicarla: subí estos archivos a un repositorio de GitHub y activá **Settings → Pages → Deploy from a branch → main / (root)**.
 
-El código es del repositorio. JSZip se distribuye bajo licencia MIT o GPLv3 (ver `JSZIP-LICENSE.md`).
+Este proyecto se publica bajo licencia MIT (ver `LICENSE`). JSZip se distribuye bajo licencia MIT o GPLv3 (ver `JSZIP-LICENSE.md`).
 
 ---
 
