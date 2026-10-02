@@ -673,3 +673,10 @@ body {
   color: var(--muted);
 }
 
+.aviso-datos {
+  margin: 0 0 1.5rem;
+  padding: 0.8rem 1rem;
+  background: var(--celeste-soft);
+  border-radius: 10px;
+  font-size: 0.97rem;
+}
