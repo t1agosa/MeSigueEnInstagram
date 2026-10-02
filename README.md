@@ -42,7 +42,7 @@ Hacelo desde el celular o la computadora, como prefieras.
 7. Elegí **Parte de tu información**.
 8. Buscá y tildá **solamente** ✅ **Seguidores y seguidos**. Nada más.
 9. Tocá **Descargar en el dispositivo**.
-10. En **Rango de fechas** elegí **Desde el principio**.
+10. En **Intervalo de fechas** elegí **Cualquier fecha**. No elijas otro intervalo: Instagram te daría solo una parte de la lista. Con esta opción el mail puede tardar un poco más.
 11. En **Formato** elegí **JSON**. *(Si dice HTML, cambialo a JSON. Igual la página también acepta HTML.)*
 12. Tocá **Crear archivos**. Si te pide la contraseña, es la de Instagram y se la das a Instagram, nadie más.
 
@@ -88,6 +88,9 @@ En cada lista podés:
 ---
 
 ## Preguntas frecuentes
+
+**Me muestra muy pocos seguidores o seguidos.**
+Seguramente elegiste un intervalo de fechas distinto de «Cualquier fecha». Instagram filtra por la fecha en que empezó cada relación, así que te da solo una parte de la lista. Pedí el archivo de nuevo con «Cualquier fecha». No trae a quienes ya dejaron de seguirte: trae tu lista tal como está el día que lo pedís.
 
 **No me llega el mail.**
 Esperá un rato más, puede tardar horas. Revisá la carpeta de spam. El mail llega a la dirección que tenés cargada en Instagram.
