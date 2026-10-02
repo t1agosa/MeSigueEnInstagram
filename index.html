@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Descubrí quién no te sigue de vuelta en Instagram sin dar tu contraseña. Todo se procesa en tu navegador.">
+  <title>¿Quién no te sigue de vuelta en Instagram?</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%94%8E%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+
+    <header class="intro">
+      <h1>¿Quién no te sigue de vuelta en Instagram?</h1>
+      <p class="lede">Subí el archivo que te da Instagram y mirá la lista al instante. Nunca te pedimos usuario ni contraseña.</p>
+    </header>
+
+    <section class="subida" aria-label="Subir archivos">
+      <label class="drop" id="drop" for="file-input">
+        <input id="file-input" class="sr-only" type="file" multiple accept=".zip,.json,.html,.htm">
+        <span class="drop-title">Soltá acá tu archivo .zip</span>
+        <span class="drop-sub">o tocá acá para elegirlo. También sirven los archivos .json y .html sueltos.</span>
+      </label>
+
+      <p class="privacidad">Tus archivos no salen de tu navegador. No se suben a ningún servidor.</p>
+
+      <ul class="estado" id="estado" aria-label="Archivos cargados">
+        <li id="estado-seguidores" data-ok="false">Seguidores: todavía no subiste el archivo</li>
+        <li id="estado-seguidos" data-ok="false">Seguidos: todavía no subiste el archivo</li>
+      </ul>
+
+      <div id="mensaje" class="mensaje" role="status" aria-live="polite" hidden></div>
+
+      <details class="ayuda">
+        <summary>¿Cómo consigo el archivo?</summary>
+        <ol>
+          <li>En Instagram, entrá a tu perfil, tocá las tres rayitas (☰) y abrí <strong>Centro de cuentas</strong>.</li>
+          <li>Tocá <strong>Tu información y permisos</strong> y después <strong>Descargar tu información</strong>.</li>
+          <li>Elegí <strong>Parte de tu información</strong> y tildá solo <strong>Seguidores y seguidos</strong>.</li>
+          <li>Elegí <strong>Descargar en el dispositivo</strong>, fecha <strong>Desde el principio</strong> y formato <strong>JSON</strong>.</li>
+          <li>Esperá el mail de Instagram (puede tardar de unos minutos a unas horas), descargá el .zip y subilo acá.</li>
+        </ol>
+        <p class="nota">Los nombres del menú pueden cambiar un poco según tu versión de Instagram.</p>
+      </details>
+    </section>
+
+    <section class="resultados" id="resultados" aria-labelledby="titulo-resultados" hidden>
+      <h2 id="titulo-resultados" class="sr-only">Resultados</h2>
+
+      <dl class="totales">
+        <div><dt>Te siguen</dt><dd id="total-seguidores">0</dd></div>
+        <div><dt>Seguís</dt><dd id="total-seguidos">0</dd></div>
+        <div><dt>Te siguen de vuelta</dt><dd id="total-reciprocidad">0 %</dd></div>
+      </dl>
+      <p class="totales-nota">«Te siguen de vuelta» es el porcentaje de las cuentas que seguís que también te siguen a vos.</p>
+
+      <div class="tabs" role="tablist" aria-label="Listas">
+        <button type="button" role="tab" id="tab-noMeSiguen" data-lista="noMeSiguen" aria-selected="true" aria-controls="panel">
+          <span class="tab-num" data-num="noMeSiguen">0</span>
+          <span class="tab-nombre">No te siguen de vuelta</span>
+        </button>
+        <button type="button" role="tab" id="tab-noSigo" data-lista="noSigo" aria-selected="false" aria-controls="panel" tabindex="-1">
+          <span class="tab-num" data-num="noSigo">0</span>
+          <span class="tab-nombre">No los seguís de vuelta</span>
+        </button>
+        <button type="button" role="tab" id="tab-mutuos" data-lista="mutuos" aria-selected="false" aria-controls="panel" tabindex="-1">
+          <span class="tab-num" data-num="mutuos">0</span>
+          <span class="tab-nombre">Mutuos</span>
+        </button>
+      </div>
+
+      <div id="panel" role="tabpanel" aria-labelledby="tab-noMeSiguen">
+        <p id="ayuda-lista" class="ayuda-lista"></p>
+        <p id="aviso-limite" class="aviso-limite" hidden>Consejo: no dejes de seguir a muchas cuentas de golpe. Instagram puede limitarte la cuenta. Andá de a poco.</p>
+
+        <div class="herramientas">
+          <input id="buscar" type="search" placeholder="Buscar usuario" aria-label="Buscar usuario" autocomplete="off" autocapitalize="off" spellcheck="false">
+          <label class="ocultar">
+            <input id="ocultar" type="checkbox">
+            <span>Ocultar los que ya revisé</span>
+          </label>
+        </div>
+
+        <p id="conteo" class="conteo" aria-live="polite"></p>
+        <p id="aviso-storage" class="aviso-storage" hidden>Tu navegador no deja guardar las casillas. Se van a perder al cerrar la página.</p>
+
+        <ul id="lista" class="lista"></ul>
+        <p id="vacio" class="vacio" hidden></p>
+        <button type="button" id="mas" class="boton boton-secundario" hidden>Mostrar más</button>
+      </div>
+
+      <div class="acciones">
+        <button type="button" id="reiniciar" class="boton boton-secundario">Subir otros archivos</button>
+        <button type="button" id="borrar-marcas" class="boton boton-texto">Borrar mis casillas marcadas</button>
+      </div>
+    </section>
+
+    <aside class="peligro" aria-label="Advertencia de seguridad">
+      <strong>Nunca pongas tu contraseña de Instagram en otra página.</strong>
+      Muchas herramientas que piden tu usuario y contraseña pueden robarte la cuenta, y Instagram puede bloquearla. Este método es el más seguro porque no la necesita.
+    </aside>
+
+    <footer class="pie">
+      <p>Proyecto independiente. No tiene relación con Instagram ni con Meta.</p>
+    </footer>
+  </main>
+
+  <script src="jszip.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
