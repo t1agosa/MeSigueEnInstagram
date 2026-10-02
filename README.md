@@ -89,6 +89,9 @@ En cada lista podés:
 
 ## Preguntas frecuentes
 
+**Los números no coinciden con los de mi perfil.**
+Instagram prepara el archivo en el momento en que lo pedís, y puede tardar horas en llegarte. Todo lo que hagas después (seguir o dejar de seguir a alguien) no aparece en el archivo. Podés seguir usando la lista y marcar las casillas, o pedir un archivo nuevo. Si lo hacés, las casillas que ya marcaste se mantienen, porque se guardan en tu navegador.
+
 **Me muestra muy pocos seguidores o seguidos.**
 Seguramente elegiste un intervalo de fechas distinto de «Cualquier fecha». Instagram filtra por la fecha en que empezó cada relación, así que te da solo una parte de la lista. Pedí el archivo de nuevo con «Cualquier fecha». No trae a quienes ya dejaron de seguirte: trae tu lista tal como está el día que lo pedís.
 
