@@ -987,9 +987,42 @@ html.arrastrando body::before {
   font-weight: 600;
 }
 
-.ruta li:last-child .chip {
+.ruta-eleccion {
+  margin: 0.9rem 0 0;
+  font-weight: 600;
+}
+
+.opciones {
+  display: grid;
+  gap: 0.3rem;
+  margin: 0.6rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.opcion-exp {
+  display: flex;
+  flex-direction: column;
+  padding: 0.65rem 0.95rem;
+  border-radius: 14px;
   background: var(--celeste-soft);
   color: var(--celeste-deep);
+}
+
+.opcion-exp strong {
+  font-weight: 700;
+}
+
+.opcion-exp span {
+  font-size: 0.88rem;
+}
+
+.opciones .o {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
 }
 
 .ajustes {
@@ -1160,11 +1193,12 @@ a.abrir:active,
 }
 
 .boton-ig {
-  display: inline-flex;
+  display: flex;
+  width: fit-content;
   align-items: center;
   gap: 0.5rem;
   min-height: 2.8rem;
-  margin-top: 0.8rem;
+  margin: 1rem auto 0;
   padding: 0.55rem 1.2rem;
   border-radius: 999px;
   background: var(--celeste-deep);
