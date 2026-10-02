@@ -2,7 +2,7 @@
 
 Una página para ver **a quién seguís que no te sigue**, a quién **no seguís de vuelta** y quiénes se siguen entre sí.
 
-👉 **Usala acá:** https://TU-USUARIO.github.io/NOMBRE-DEL-REPO/
+👉 **Usala acá:** https://t1agosa.github.io/MeSigueEnInstagram/
 
 ---
 
