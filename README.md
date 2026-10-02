@@ -60,7 +60,7 @@ Instagram te manda un mail cuando el archivo está listo. Puede tardar **desde u
 
 ### Paso 4. Subilo a la página
 
-1. Abrí la página: https://TU-USUARIO.github.io/NOMBRE-DEL-REPO/
+1. Abrí la página: https://t1agosa.github.io/MeSigueEnInstagram/
 2. **Arrastrá el .zip** al recuadro celeste, o tocá el recuadro y elegilo.
 3. Listo. Aparecen tus resultados.
 
