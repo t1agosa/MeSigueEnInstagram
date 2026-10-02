@@ -57,6 +57,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 [hidden] {
@@ -1122,4 +1123,54 @@ html.arrastrando body::before {
   * {
     transition: none !important;
   }
+}
+
+/* ---------- Respuesta al toque ---------- */
+
+.boton-chico,
+.boton-primario,
+.boton-secundario,
+a.abrir,
+.tabs button,
+.drop,
+.fecha summary {
+  transition: transform 0.1s;
+}
+
+.boton-chico:active,
+.boton-primario:active,
+.boton-secundario:active,
+a.abrir:active,
+.tabs button:active,
+.drop:active,
+.fecha summary:active,
+.boton-ig:active {
+  transform: scale(0.97);
+}
+
+.acordeon > summary:active,
+.pregunta > summary:active {
+  opacity: 0.7;
+}
+
+/* ---------- Pie: invitación a seguirme ---------- */
+
+.pie p + p {
+  margin-top: 0.6rem;
+}
+
+.boton-ig {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.8rem;
+  margin-top: 0.8rem;
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  background: var(--celeste-deep);
+  color: var(--paper);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.1s;
 }
