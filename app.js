@@ -43,19 +43,36 @@
     noSigo: '¡Seguís a todas las cuentas que te siguen!',
   };
 
-  // Cuentas inventadas para la demo. Los números son "hace cuántos días".
-  // Sus botones de perfil no llevan a ningún lado.
+    // Demo: 20 cuentas famosas reales (abren su perfil) y algunas inventadas para completar las listas.
+  // Los números son "hace cuántos días". Las inventadas no llevan a ningún lado.
   const DEMO = [
-    { user: 'el_nacho', following: 210 },
-    { user: 'lucas.fit', following: 830 },
-    { user: 'mica_art', following: 2 },
-    { user: 'nico.travel', following: 95 },
-    { user: 'sofi.dg', following: 1400 },
-    { user: '__deleted__x7k2m9qa', following: 1100 },
+    { user: 'cristiano', following: 2300, real: true },
+    { user: 'leomessi', following: 2100, real: true },
+    { user: 'selenagomez', following: 1500, real: true },
+    { user: 'kyliejenner', following: 1200, real: true },
+    { user: 'therock', following: 900, real: true },
+    { user: 'arianagrande', following: 1800, real: true },
+    { user: 'kimkardashian', following: 700, real: true },
+    { user: 'beyonce', following: 1950, real: true },
+    { user: 'taylorswift', following: 400, real: true },
+    { user: 'jlo', following: 520, real: true },
+    { user: 'neymarjr', following: 2200, real: true },
+    { user: 'shakira', following: 1700, real: true },
+    { user: 'karolg', following: 300, real: true },
+    { user: 'tinistoessel', following: 260, real: true },
+    { user: 'zendaya', following: 150, real: true },
+    { user: 'billieeilish', following: 80, real: true },
+    { user: 'kendalljenner', following: 600, real: true },
+    { user: 'mrbeast', following: 35, real: true },
+    { user: 'kunaguero', following: 1400, real: true },
+    { user: 'khloekardashian', following: 20, real: true },
+    { user: '__deleted__x7k2m9qa', follower: 1100 },
     { user: 'ana_foto', follower: 300 },
     { user: 'dani.music', follower: 1500, unfollowed: 20 },
     { user: 'juli.bs', follower: 45 },
     { user: 'pablo_ok', follower: 700 },
+    { user: 'meli.vz', follower: 210 },
+    { user: 'santi_gm', follower: 1900 },
     { user: 'agus.rm', following: 900, follower: 1200 },
     { user: 'cami.ok', following: 500, follower: 100 },
     { user: 'fede.a', following: 60, follower: 60 },
@@ -65,6 +82,18 @@
     { user: 'vale_ok', unfollowed: 12 },
     { user: 'gus.d', unfollowed: 75 },
   ];
+
+  // Números inventados que muestra la demo arriba y en las pestañas (en pantalla hay solo 35 cuentas).
+  // Cierran entre sí: seguidos = mutuos + noMeSiguen, seguidores = mutuos + noSigo.
+  const DEMO_COUNTS = {
+    followers: 1303,
+    following: 1688,
+    todos: 2008,
+    mutuos: 1021,
+    dejadas: 38,
+    noMeSiguen: 667,
+    noSigo: 282,
+  };
 
   const state = {
     followers: new Map(), // origen del archivo -> { users: Map(usuario -> fecha), date: Date | null }
@@ -630,7 +659,8 @@
     const ago = (days) => now - days * DAY_MS - 3 * 3600000;
     const accounts = new Map();
     DEMO.forEach((spec) => {
-      const a = newAccount(spec.user);
+            const a = newAccount(spec.user);
+      a.real = !!spec.real;
       if (spec.following != null) {
         a.follows = true;
         a.followingTs = ago(spec.following);
@@ -846,24 +876,35 @@
     el.resultados.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
   }
 
-  function renderMetrics() {
-    const { followers, following, mutuos, noMeSiguen } = state.lists;
-    const pct = following ? Math.round((mutuos.length / following) * 100) : 0;
+    function renderMetrics() {
+    const l = state.lists;
+    const c =
+      state.mode === 'demo'
+        ? DEMO_COUNTS
+        : {
+            followers: l.followers,
+            following: l.following,
+            todos: l.todos.length,
+            mutuos: l.mutuos.length,
+            dejadas: l.dejadas.length,
+            noMeSiguen: l.noMeSiguen.length,
+            noSigo: l.noSigo.length,
+          };
+    const pct = c.following ? Math.round((c.mutuos / c.following) * 100) : 0;
 
-    el.totalSeguidores.textContent = fmt(followers);
-    el.totalSeguidos.textContent = fmt(following);
-    el.barraEtiqueta.textContent = `De las ${fmt(following)} que seguís`;
-    el.leyendaMutuos.textContent = `${fmt(mutuos.length)} te siguen de vuelta (${pct} %)`;
-    el.leyendaNo.textContent = `${fmt(noMeSiguen.length)} no te siguen`;
+    el.totalSeguidores.textContent = fmt(c.followers);
+    el.totalSeguidos.textContent = fmt(c.following);
+    el.barraEtiqueta.textContent = `De las ${fmt(c.following)} que seguís`;
+    el.leyendaMutuos.textContent = `${fmt(c.mutuos)} te siguen de vuelta (${pct} %)`;
+    el.leyendaNo.textContent = `${fmt(c.noMeSiguen)} no te siguen`;
 
-    el.barraMutuos.style.flexGrow = String(mutuos.length);
-    el.barraNo.style.flexGrow = String(noMeSiguen.length);
-    el.barraMutuos.hidden = mutuos.length === 0;
-    el.barraNo.hidden = noMeSiguen.length === 0;
+    el.barraMutuos.style.flexGrow = String(c.mutuos);
+    el.barraNo.style.flexGrow = String(c.noMeSiguen);
+    el.barraMutuos.hidden = c.mutuos === 0;
+    el.barraNo.hidden = c.noMeSiguen === 0;
 
     el.tabs.forEach((tab) => {
-      const name = tab.dataset.lista;
-      tab.querySelector('.tab-num').textContent = fmt(state.lists[name].length);
+      tab.querySelector('.tab-num').textContent = fmt(c[tab.dataset.lista]);
     });
   }
 
@@ -965,7 +1006,7 @@
       action = document.createElement('span');
       action.className = 'etiqueta-eliminada';
       action.textContent = 'Eliminada';
-    } else if (state.mode === 'demo') {
+        } else if (state.mode === 'demo' && !account.real) {
       action = document.createElement('span');
       action.className = 'abrir';
             action.setAttribute('aria-hidden', 'true');
@@ -1031,9 +1072,11 @@
     if (!full.length) {
       el.conteo.textContent = '';
     } else {
-      const parts = [
-        `${fmt(full.length)} ${plural(full.length, 'cuenta', 'cuentas')}, ${fmt(reviewedCount)} ${plural(reviewedCount, 'revisada', 'revisadas')}`,
-      ];
+            const head =
+        state.mode === 'demo'
+          ? `Ejemplo: se muestran ${fmt(full.length)} de ${fmt(DEMO_COUNTS[state.activeList])} cuentas`
+          : `${fmt(full.length)} ${plural(full.length, 'cuenta', 'cuentas')}`;
+      const parts = [`${head}, ${fmt(reviewedCount)} ${plural(reviewedCount, 'revisada', 'revisadas')}`];
       if (items.length !== full.length) parts.push(`Mostrando ${fmt(items.length)}`);
       if (state.sort !== 'az') {
         parts.push(`Ordenadas por fecha: ${state.sort === 'recent' ? 'más recientes' : 'más antiguas'} primero`);
