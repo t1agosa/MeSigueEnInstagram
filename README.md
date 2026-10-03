@@ -81,9 +81,16 @@ También podés subir los archivos `followers_1.json` y `following.json` sueltos
 
 ## Qué vas a ver
 
-Arriba de todo, la página muestra cuántas cuentas te siguen, a cuántas seguís y una barra con la parte de tus seguidos que te sigue de vuelta.
+Arriba de todo está el título **Tus resultados** y, a la derecha, el botón **Cambiar archivo** para subir otro.
 
-Abajo hay cinco listas:
+Debajo hay una tarjeta con:
+
+- Tu **@usuario** a la izquierda y, a la derecha, un chip con la fecha de los datos (por ejemplo, «Datos del 2 oct 26»). El usuario se lee del nombre del .zip que descargaste (instagram-usuario-2026-10-02-CODIGO.zip), así que solo aparece si subís el .zip y no los archivos sueltos.
+- Dos recuadros, como en Instagram: **Seguidores** y **Seguidos**, con la cantidad de cuentas de cada uno.
+- Una barra con la parte de tus seguidos que te sigue de vuelta.
+- Cinco pestañas con su cantidad, siempre visibles.
+
+Las cinco listas son:
 
 | Lista | Qué muestra |
 |---|---|
@@ -114,6 +121,8 @@ En una cuenta mutua, la segunda frase puede ser «Te siguió primero.», «La se
 
 **Cuentas eliminadas:** Instagram las marca así en el archivo. Aparecen con la etiqueta **Eliminada** y sin botón de perfil, porque ya no hay perfil al que ir.
 
+Las listas arrancan contraídas, para que la página no sea larga. Tocá **Expandir sección** (o tocá cualquier pestaña) para ver el buscador, los filtros y las cuentas. Se muestran 10 cuentas por vez, con un botón **Mostrar 10 cuentas más** (o las que falten, si quedan menos). Cuando termines, tocá **Contraer sección**.
+
 ### En cada lista podés
 
 - **Buscar** a alguien por su usuario.
@@ -124,11 +133,11 @@ En una cuenta mutua, la segunda frase puede ser «Te siguió primero.», «La se
 
 > 💡 **Consejo:** no dejes de seguir a muchas cuentas de golpe. Instagram puede pensar que sos un robot y limitarte la cuenta. Hacelo de a poco, unas pocas por día.
 
-Arriba de los resultados aparece la fecha en que Instagram preparó tu archivo («Datos del 2 oct, 11:28»). Si seguiste o dejaste de seguir a alguien después, no aparece: pedí un archivo nuevo para actualizar.
+El chip de arriba a la derecha muestra el día en que Instagram preparó tu archivo («Datos del 2 oct 26»). Tocalo para ver una explicación. Si seguiste o dejaste de seguir a alguien después, no aparece: pedí un archivo nuevo para actualizar.
 
 ### Más sobre tu cuenta
 
-Cuando subís tu archivo, debajo de los resultados aparecen hasta cinco secciones plegables. Al abrir una, se cierra la que estaba abierta. Cada una muestra primero 10 cuentas, con un botón para cargar más, y un buscador cuando la lista es larga.
+Cuando subís tu archivo, debajo de los resultados aparecen hasta cinco secciones plegables. Al abrir una, se cierra la que estaba abierta. Cada una muestra primero 10 cuentas, con un botón **Mostrar 10 cuentas más** (o las que falten, si quedan menos), y un buscador cuando la lista es larga.
 
 | Sección | Qué muestra |
 |---|---|
