@@ -393,8 +393,16 @@ body[data-estado="resultados"] .hero h1 {
   margin-top: 1rem;
 }
 
+.buscar-fila {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .buscador {
   position: relative;
+  flex: 1;
+  min-width: 0;
 }
 
 .buscador .icono {
@@ -1185,7 +1193,7 @@ html.arrastrando body::before {
     gap: 1.25rem;
   }
 
-  .buscador {
+    .buscar-fila {
     flex: 1;
   }
 }
@@ -1265,4 +1273,103 @@ a.abrir:active,
 
 .tabs #tab-todos {
   grid-column: 1 / -1;
+}
+
+/* ---------- Filtros y orden ---------- */
+
+.boton-filtros {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 2.9rem;
+  padding: 0 0.95rem;
+  border: 0;
+  border-radius: 14px;
+  background: var(--hundido);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.boton-filtros[aria-expanded="true"] {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.boton-filtros:active {
+  transform: scale(0.97);
+}
+
+.filtros-punto {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--celeste);
+}
+
+.filtros {
+  margin-top: 0.6rem;
+  padding: 0.85rem 1rem;
+  border-radius: 16px;
+  background: var(--hundido);
+}
+
+.orden {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.orden legend {
+  margin-bottom: 0.5rem;
+  padding: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.orden-opciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.orden-opcion span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.4rem 0.85rem;
+  border: 1.5px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.orden-opcion .icono {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.orden-opcion input:checked + span {
+  border-color: var(--celeste-deep);
+  background: var(--celeste-soft);
+  color: var(--celeste-deep);
+}
+
+.orden-opcion input:focus-visible + span {
+  outline: 3px solid var(--celeste-deep);
+  outline-offset: 2px;
+}
+
+.filtros-fecha {
+  margin: 0.6rem 0 0;
+  color: var(--muted);
+  font-size: 0.85rem;
 }
