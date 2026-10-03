@@ -26,7 +26,10 @@
     <symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/></symbol>
     <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8"/><path d="M12 16v4"/></symbol>
     <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.5-3.5L4 9"/><path d="M4 4v5h5"/><path d="M4 13a8 8 0 0 0 14.5 3.5L20 15"/><path d="M20 20v-5h-5"/></symbol>
-    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4l9 16H3z"/><path d="M12 10v4"/><path d="M12 17v.01"/></symbol>
+        <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4l9 16H3z"/><path d="M12 10v4"/><path d="M12 17v.01"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><circle cx="14" cy="6" r="2"/><path d="M4 6h8"/><path d="M16 6h4"/><circle cx="8" cy="12" r="2"/><path d="M4 12h2"/><path d="M10 12h10"/><circle cx="17" cy="18" r="2"/><path d="M4 18h11"/><path d="M19 18h1"/></symbol>
+    <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M18 13l-6 6-6-6"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5"/><path d="M18 11l-6-6-6 6"/></symbol>
   </svg>
 
   <main class="page">
@@ -111,16 +114,43 @@
         <p id="ayuda-lista" class="ayuda-lista"></p>
         <p id="aviso-limite" class="aviso-limite" hidden>Andá de a poco: dejar de seguir a muchas cuentas de golpe puede limitarte la cuenta.</p>
 
-        <div class="herramientas">
-          <div class="buscador">
-            <svg class="icono" aria-hidden="true"><use href="#i-search"/></svg>
-            <input id="buscar" type="search" placeholder="Buscar usuario" aria-label="Buscar usuario" autocomplete="off" autocapitalize="off" spellcheck="false">
+                <div class="herramientas">
+          <div class="buscar-fila">
+            <div class="buscador">
+              <svg class="icono" aria-hidden="true"><use href="#i-search"/></svg>
+              <input id="buscar" type="search" placeholder="Buscar usuario" aria-label="Buscar usuario" autocomplete="off" autocapitalize="off" spellcheck="false">
+            </div>
+            <button type="button" class="boton-filtros" id="filtros-boton" aria-expanded="false" aria-controls="filtros">
+              <svg class="icono" aria-hidden="true"><use href="#i-sliders"/></svg>Filtros
+              <span class="filtros-punto" id="filtros-punto" aria-hidden="true" hidden></span>
+            </button>
           </div>
           <label class="interruptor">
             <input id="ocultar" class="sr-only" type="checkbox" role="switch">
             <span class="pista" aria-hidden="true"></span>
             <span>Ocultar los que ya revisé</span>
           </label>
+        </div>
+
+        <div class="filtros" id="filtros" hidden>
+          <fieldset class="orden">
+            <legend>Ordenar</legend>
+            <div class="orden-opciones">
+              <label class="orden-opcion">
+                <input class="sr-only" type="radio" name="orden" value="az" checked>
+                <span>A–Z</span>
+              </label>
+              <label class="orden-opcion">
+                <input class="sr-only" type="radio" name="orden" value="recent">
+                <span><svg class="icono" aria-hidden="true"><use href="#i-arrow-down"/></svg>Más recientes primero</span>
+              </label>
+              <label class="orden-opcion">
+                <input class="sr-only" type="radio" name="orden" value="old">
+                <span><svg class="icono" aria-hidden="true"><use href="#i-arrow-up"/></svg>Más antiguas primero</span>
+              </label>
+            </div>
+          </fieldset>
+          <p class="filtros-fecha" id="filtros-fecha"></p>
         </div>
 
         <p id="conteo" class="conteo" aria-live="polite"></p>
