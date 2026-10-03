@@ -83,7 +83,9 @@
     query: '',
     hideReviewed: false,
     sort: 'az', // 'az' | 'recent' | 'old'
-    visible: PAGE_SIZE,
+        visible: PAGE_SIZE,
+    username: null, // usuario que viene en el nombre del .zip
+    listOpen: false, // sección «Todos, Mutuos…» expandida
   };
 
   const $ = (id) => document.getElementById(id);
@@ -99,8 +101,11 @@
     titulo: $('res-titulo'),
     insigniaDemo: $('insignia-demo'),
     cambiar: $('cambiar'),
+        usuario: $('res-usuario'),
     fecha: $('fecha'),
     fechaTexto: $('fecha-texto'),
+    fechaDetalle: $('fecha-detalle'),
+    alternar: $('alternar-lista'),
     demoNota: $('demo-nota'),
     totalSeguidores: $('total-seguidores'),
     totalSeguidos: $('total-seguidos'),
@@ -143,8 +148,14 @@
     return m ? m[1].toLowerCase() : '';
   }
 
-  function isSupportedExt(ext) {
+    function isSupportedExt(ext) {
     return ext === 'json' || ext === 'html' || ext === 'htm';
+  }
+
+  // El .zip de Instagram se llama instagram-USUARIO-AAAA-MM-DD-CODIGO.zip
+  function usernameFromZipName(name) {
+    const m = /^instagram-([a-z0-9._]+)-\d{4}-\d{2}-\d{2}-[a-z0-9_-]+(?:\s*\(\d+\))?\.zip$/i.exec(baseName(name));
+    return m ? normalizeUser(m[1]) : null;
   }
 
   function normalizeUser(raw) {
@@ -197,10 +208,9 @@
     return `Mostrar ${fmt(n)} ${plural(n, 'cuenta', 'cuentas')} más`;
   }
 
-  function formatDate(d) {
-    const opts = { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', hour12: false };
-    if (d.getFullYear() !== new Date().getFullYear()) opts.year = 'numeric';
-    return new Intl.DateTimeFormat('es-AR', opts).format(d).replace(/\./g, '');
+    function formatDate(d) {
+    const day = new Intl.DateTimeFormat('es-AR', { day: 'numeric', month: 'short' }).format(d).replace(/\./g, '');
+    return `${day} ${String(d.getFullYear()).slice(-2)}`;
   }
 
   function icon(name, className) {
@@ -494,6 +504,10 @@
     }
 
     commit(prepared);
+    if (prepared.some((p) => p.fromZip)) {
+      const zip = files.find((f) => getExt(f.name) === 'zip');
+      state.username = zip ? usernameFromZipName(zip.name) : null;
+    }
     updateStatus();
 
     const hasFollowers = state.followers.size > 0;
@@ -791,6 +805,8 @@
     el.demoNota.hidden = real;
     el.cambiar.hidden = !real;
     el.fecha.hidden = !real;
+    el.fecha.setAttribute('aria-expanded', 'false');
+    el.fechaDetalle.hidden = true;
     el.borrarMarcas.hidden = !real;
   }
 
@@ -801,6 +817,8 @@
     el.buscar.value = '';
     renderMetrics();
     renderFecha();
+    renderUsuario();
+    setListExpanded(false);
     el.resultados.hidden = false;
     selectTab('todos', false);
     if (mode === 'real') renderMas();
@@ -838,11 +856,23 @@
     });
   }
 
-  function renderFecha() {
+    function renderFecha() {
     if (state.mode !== 'real') return;
     const d = exportDate();
     el.fechaTexto.textContent = d ? `Datos del ${formatDate(d)}` : 'Datos de cuando pediste el archivo';
-    el.fecha.open = false;
+  }
+
+  function renderUsuario() {
+    const name = state.mode === 'real' ? state.username : 'usuario_demo';
+    el.usuario.textContent = name ? `@${name}` : '';
+    el.usuario.hidden = !name;
+  }
+
+  function setListExpanded(open) {
+    state.listOpen = open;
+    el.panel.hidden = !open;
+    el.alternar.setAttribute('aria-expanded', String(open));
+    el.alternar.textContent = open ? 'Contraer sección' : 'Expandir sección';
   }
 
   /* ------------------------------- Listas ---------------------------- */
@@ -1502,7 +1532,22 @@
       });
     });
 
-    el.cambiar.addEventListener('click', () => el.input.click());
+        el.cambiar.addEventListener('click', () => el.input.click());
+
+    el.fecha.addEventListener('click', () => {
+      const open = el.fechaDetalle.hidden;
+      el.fechaDetalle.hidden = !open;
+      el.fecha.setAttribute('aria-expanded', String(open));
+    });
+
+    el.alternar.addEventListener('click', () => {
+      const willOpen = !state.listOpen;
+      setListExpanded(willOpen);
+      if (!willOpen) {
+        const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        el.resultados.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      }
+    });
     el.irASubir.addEventListener('click', () => el.input.click());
 
     document.querySelectorAll('a[href="#como-funciona"]').forEach((a) => {
@@ -1534,7 +1579,10 @@
     });
 
     el.tabs.forEach((tab) => {
-      tab.addEventListener('click', () => selectTab(tab.dataset.lista, false));
+            tab.addEventListener('click', () => {
+        selectTab(tab.dataset.lista, false);
+        setListExpanded(true);
+      });
       tab.addEventListener('keydown', (e) => {
         const i = el.tabs.indexOf(tab);
         let next = null;
