@@ -1262,3 +1262,7 @@ a.abrir:active,
   text-decoration: none;
   transition: transform 0.1s;
 }
+
+.tabs #tab-todos {
+  grid-column: 1 / -1;
+}
