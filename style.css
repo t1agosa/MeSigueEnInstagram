@@ -1509,3 +1509,15 @@ button.ano-fila:active {
   padding-left: 1.05rem;
   color: var(--muted);
 }
+
+.lista-principal {
+  margin-top: 1.25rem;
+}
+
+.lista-principal > .ac-cuerpo {
+  padding: 0 0.6rem 1rem;
+}
+
+.lista-principal .tabs {
+  margin-top: 0.25rem;
+}
