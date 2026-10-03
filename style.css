@@ -11,7 +11,9 @@
   --celeste-deep: #1f5f99;
   --sol: #f6b40e;
   --sol-soft: #fff4d6;
-  --sol-ink: #6b4a00;
+    --sol-ink: #6b4a00;
+  --verde: #2e9e5b;
+  --rojo: #d64545;
   --radius: 14px;
   --radius-lg: 22px;
   --sombra: 0 1px 2px rgba(15, 27, 45, 0.05), 0 12px 32px rgba(15, 27, 45, 0.07);
@@ -40,7 +42,9 @@
     --celeste-soft: #172a42;
     --celeste-deep: #8fc3f2;
     --sol-soft: #3a2f10;
-    --sol-ink: #f6d88a;
+        --sol-ink: #f6d88a;
+    --verde: #4cc784;
+    --rojo: #ff7a7a;
     --sombra: none;
     --check-img: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f1b2d' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E");
 
@@ -324,7 +328,7 @@ body[data-estado="resultados"] .hero h1 {
 
 .tabs {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 0.25rem;
   margin-top: 1.25rem;
   padding: 0.25rem;
@@ -480,10 +484,56 @@ body[data-estado="resultados"] .hero h1 {
 }
 
 .fila {
+  padding: 0.55rem 0;
+}
+
+.fila-top {
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  padding: 0.4rem 0;
+}
+
+.fila-info {
+  margin: 0.2rem 0 0 5.8rem;
+}
+
+.dato {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.dato + .dato {
+  margin-top: 0.05rem;
+}
+
+.dato-punto {
+  flex: none;
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-top: 0.36rem;
+  border-radius: 50%;
+}
+
+.dato-punto.ok {
+  background: var(--verde);
+}
+
+.dato-punto.no {
+  background: var(--rojo);
+}
+
+.etiqueta-eliminada {
+  flex: none;
+  padding: 0.15rem 0.65rem;
+  border-radius: 999px;
+  background: var(--sol-soft);
+  color: var(--sol-ink);
+  font-size: 0.78rem;
+  font-weight: 600;
 }
 
 .fila + .fila {
@@ -1119,6 +1169,10 @@ html.arrastrando body::before {
 @media (min-width: 36rem) {
   .page {
     padding-top: 2.5rem;
+  }
+
+  .tabs {
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .resultados {
