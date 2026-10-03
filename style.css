@@ -1590,3 +1590,75 @@ button.ano-fila:active {
 .boton-alternar {
   width: 100%;
 }
+
+/* ---------- Celular: borde a borde ---------- */
+
+.abrir-corto {
+  display: none;
+}
+
+@media (max-width: 35.99rem) {
+  .res-card,
+  .mas-item {
+    margin-inline: -1.1rem;
+    border-inline: 0;
+    border-radius: 0;
+  }
+
+  .res-card {
+    padding-inline: 0.75rem;
+  }
+
+  .mas-item > summary,
+  .mas-item > .ac-cuerpo {
+    padding-inline: 0.75rem;
+  }
+
+  .fila-top {
+    gap: 0.5rem;
+  }
+
+  .casilla {
+    width: 2rem;
+    height: 2.25rem;
+    margin-left: -0.25rem;
+  }
+
+  input.check {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  .avatar {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.85rem;
+  }
+
+  .usuario {
+    font-size: 0.95rem;
+  }
+
+  .abrir {
+    gap: 0.25rem;
+    padding: 0.3rem 0.65rem;
+    font-size: 0.82rem;
+  }
+
+  .abrir .icono {
+    width: 0.85rem;
+    height: 0.85rem;
+  }
+
+  .abrir-largo {
+    display: none;
+  }
+
+  .abrir-corto {
+    display: inline;
+  }
+
+  .fila-info {
+    margin-left: 0.475rem;
+  }
+}
