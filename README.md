@@ -141,6 +141,9 @@ Lo que sí sabe, y muestra, es desde cuándo seguís vos a cada cuenta y desde c
 
 ## Preguntas frecuentes
 
+**Abro un perfil y dice «Esta página no está disponible».**
+Si al abrir un perfil Instagram dice «Esta página no está disponible», puede ser que la persona haya pausado o desactivado su cuenta, que haya cambiado de usuario o que te haya bloqueado. Desde acá no se puede saber cuál. Para distinguirlo, abrí ese mismo enlace desde otra cuenta (o sin iniciar sesión): si tampoco se ve, la cuenta está desactivada o ya no existe. Si se ve ahí pero no en la tuya, es probable que te haya bloqueado.
+
 **¿Qué significan los puntitos verdes y rojos?**
 Cada cuenta tiene dos frases. El puntito verde indica que el vínculo existe (por ejemplo, «Seguís esta cuenta» o «Te sigue»). El rojo indica que no existe (por ejemplo, «No te sigue»). Las fechas son exactas si pasó menos de un año, y si pasó más dice «más de N años».
 
