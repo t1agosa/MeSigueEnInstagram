@@ -1373,3 +1373,139 @@ a.abrir:active,
   color: var(--muted);
   font-size: 0.85rem;
 }
+
+/* ---------- Más sobre tu cuenta ---------- */
+
+.mas {
+  margin-top: 1.75rem;
+}
+
+.mas-titulo {
+  margin: 0 0 0.1rem;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.mas-cuerpo {
+  padding-top: 0.5rem;
+}
+
+.mas-desc {
+  max-width: 34rem;
+  margin: 0 0 0.75rem;
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+
+.mas-extra {
+  margin-bottom: 0.5rem;
+}
+
+.mas-extra:empty,
+.mas-visual:empty {
+  display: none;
+}
+
+.mas-visual {
+  margin-bottom: 0.9rem;
+}
+
+.mas-cuerpo .proporcion {
+  margin-top: 0;
+}
+
+.mas-cuerpo .buscador input {
+  width: 100%;
+  min-height: 2.9rem;
+  padding: 0.5rem 0.9rem 0.5rem 2.6rem;
+  border: 0;
+  border-radius: 14px;
+  background: var(--hundido);
+  color: var(--ink);
+  font: inherit;
+}
+
+.mas-cuerpo .buscador input::placeholder {
+  color: var(--muted);
+}
+
+.anos {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.ano-fila {
+  display: grid;
+  grid-template-columns: 5.2rem 1fr 2.6rem;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.35rem 0.5rem;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+}
+
+button.ano-fila {
+  cursor: pointer;
+}
+
+button.ano-fila:hover {
+  background: var(--hundido);
+}
+
+button.ano-fila:active {
+  opacity: 0.7;
+}
+
+.ano-fila[aria-pressed="true"] {
+  background: var(--celeste-soft);
+}
+
+.ano-etq {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.ano-anio {
+  font-weight: 700;
+}
+
+.ano-hace {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.ano-pista {
+  display: block;
+  height: 0.6rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--hundido);
+}
+
+.ano-fila[aria-pressed="true"] .ano-pista {
+  background: var(--surface);
+}
+
+.ano-barra {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--celeste);
+}
+
+.ano-num {
+  text-align: right;
+  font-weight: 700;
+}
+
+.dato-extra {
+  padding-left: 1.05rem;
+  color: var(--muted);
+}
