@@ -174,12 +174,15 @@ body[data-estado="resultados"] .hero h1 {
 /* ---------- Resultados y demo ---------- */
 
 .resultados {
-  padding: 1.1rem 1rem 1.25rem;
+  scroll-margin-top: 1rem;
+}
+
+.res-card {
+  padding: 1rem 1.1rem 1.25rem;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   box-shadow: var(--sombra);
-  scroll-margin-top: 1rem;
 }
 
 .res-cabecera {
@@ -1183,10 +1186,6 @@ html.arrastrando body::before {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  .resultados {
-    padding: 1.4rem 1.5rem 1.5rem;
-  }
-
   .herramientas {
     flex-direction: row;
     align-items: center;
@@ -1510,14 +1509,84 @@ button.ano-fila:active {
   color: var(--muted);
 }
 
-.lista-principal {
-  margin-top: 1.25rem;
+.res-cabecera {
+  margin-bottom: 0.6rem;
 }
 
-.lista-principal > .ac-cuerpo {
-  padding: 0 0.6rem 1rem;
+.res-titulo {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
-.lista-principal .tabs {
-  margin-top: 0.25rem;
+.res-identidad {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 0.75rem;
+}
+
+.res-usuario {
+  min-width: 0;
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+}
+
+.res-identidad .insignia {
+  margin-left: auto;
+}
+
+.chip-datos {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-left: auto;
+  padding: 0.3rem 0.75rem 0.3rem 0.6rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--celeste-soft);
+  color: var(--celeste-deep);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.chip-datos:active {
+  transform: scale(0.97);
+}
+
+.fecha-detalle {
+  max-width: 32rem;
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.metricas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.metrica {
+  align-items: center;
+  padding: 0.75rem 0.5rem;
+  border-radius: 14px;
+  background: var(--hundido);
+  text-align: center;
+}
+
+.metrica-num {
+  font-size: 1.7rem;
+}
+
+.boton-alternar {
+  width: 100%;
 }
