@@ -117,6 +117,7 @@ En una cuenta mutua, la segunda frase puede ser «Te siguió primero.», «La se
 ### En cada lista podés
 
 - **Buscar** a alguien por su usuario.
+- Tocar **Filtros** para ordenar la lista por fecha: las más recientes o las más antiguas primero. Cada lista usa la fecha que le corresponde (por ejemplo, en «No te siguen», desde cuándo la seguís).
 - Tocar **Abrir perfil** para ir a su perfil en Instagram. Ahí tocás **Siguiendo** y después **Dejar de seguir** (o **Seguir**, según el caso).
 - Marcar la casilla ☑ cuando **ya lo revisaste**. Queda tachado, y si volvés otro día y subís el archivo de nuevo, **sigue tachado**. Esas marcas se guardan solo en tu navegador.
 - Activar **Ocultar los que ya revisé** para ver únicamente los que te faltan.
