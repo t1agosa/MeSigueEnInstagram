@@ -126,6 +126,20 @@ En una cuenta mutua, la segunda frase puede ser «Te siguió primero.», «La se
 
 Arriba de los resultados aparece la fecha en que Instagram preparó tu archivo («Datos del 2 oct, 11:28»). Si seguiste o dejaste de seguir a alguien después, no aparece: pedí un archivo nuevo para actualizar.
 
+### Más sobre tu cuenta
+
+Cuando subís tu archivo, debajo de los resultados aparecen hasta cinco secciones plegables. Al abrir una, se cierra la que estaba abierta. Cada una muestra primero 10 cuentas, con un botón para cargar más, y un buscador cuando la lista es larga.
+
+| Sección | Qué muestra |
+|---|---|
+| **Mejores amigos** | Cuántas cuentas de tu lista de Mejores amigos te siguen de vuelta, con las que no te siguen primero y desde cuándo son mejores amigos. |
+| **Seguidores veteranos por año** | Cuántas cuentas te siguen desde cada año, de la más antigua a la más nueva. Tocá un año para ver esas cuentas, y activá **Solo mutuos** para ver únicamente las que vos también seguís. Solo cuenta a quienes te siguen hoy. |
+| **Solicitudes sin respuesta** | Cuentas privadas a las que pediste seguir y todavía no te aceptaron, de la más antigua a la más nueva. |
+| **Le ocultás tus historias** | Cuentas a las que les ocultás tus historias, con la fecha. |
+| **Perfiles favoritos** | Cuentas que marcaste como favoritas, con la fecha. |
+
+Una sección solo aparece si tu archivo tiene datos para ella. Las fechas siguen la misma regla de siempre: exactas si pasó menos de un año, y «más de N años» si pasó más.
+
 ### Lo que la página no puede saber
 
 El archivo de Instagram trae tus listas **de hoy**, no el historial. Por eso:
@@ -143,6 +157,9 @@ Lo que sí sabe, y muestra, es desde cuándo seguís vos a cada cuenta y desde c
 
 **Abro un perfil y dice «Esta página no está disponible».**
 Si al abrir un perfil Instagram dice «Esta página no está disponible», puede ser que la persona haya pausado o desactivado su cuenta, que haya cambiado de usuario o que te haya bloqueado. Desde acá no se puede saber cuál. Para distinguirlo, abrí ese mismo enlace desde otra cuenta (o sin iniciar sesión): si tampoco se ve, la cuenta está desactivada o ya no existe. Si se ve ahí pero no en la tuya, es probable que te haya bloqueado.
+
+**¿Se puede saber quién vio mi perfil?**
+No. Instagram no ofrece ninguna función para ver quién visitó tu perfil, y ese dato tampoco está en la exportación. Lo único que muestra es quién vio tus historias, dentro de la app y mientras siguen disponibles. Las aplicaciones y páginas que prometen mostrar quién visitó tu perfil son estafas, y muchas buscan que les des tu contraseña.
 
 **¿Qué significan los puntitos verdes y rojos?**
 Cada cuenta tiene dos frases. El puntito verde indica que el vínculo existe (por ejemplo, «Seguís esta cuenta» o «Te sigue»). El rojo indica que no existe (por ejemplo, «No te sigue»). Las fechas son exactas si pasó menos de un año, y si pasó más dice «más de N años».
@@ -183,7 +200,7 @@ No. La página nunca se conecta con Instagram. Solo lee los archivos que vos le 
 
 Es una web estática sin dependencias ni proceso de compilación: `index.html`, `app.js`, `style.css` y `jszip.min.js` (JSZip 3.10.1, incluida en el repo para no depender de ningún CDN).
 
-- De la exportación lee `followers_*.json`, `following.json` y `recently_unfollowed_profiles.json` (también sus versiones `.html`, pero sin fechas). Los demás archivos del .zip los ignora.
+- De la exportación lee `followers_*.json`, `following.json`, `recently_unfollowed_profiles.json`, `close_friends.json`, `pending_follow_requests.json`, `hide_story_from.json` y `profiles_you've_favorited.json` (también sus versiones `.html`, pero sin fechas). Los demás archivos del .zip los ignora.
 - Entiende los dos formatos que usa Instagram: el clásico (`string_list_data`) y el nuevo (`label_values`), con las etiquetas en el idioma de la cuenta.
 - La página tiene una política de seguridad (`Content-Security-Policy`) que **bloquea cualquier conexión de red**, así que el código no podría enviar tus datos aunque quisiera.
 - Para probarla en tu máquina, abrí `index.html` en el navegador o levantá un servidor simple, por ejemplo `python3 -m http.server`.
