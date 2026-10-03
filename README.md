@@ -133,7 +133,7 @@ Cuando subís tu archivo, debajo de los resultados aparecen hasta cinco seccione
 | Sección | Qué muestra |
 |---|---|
 | **Mejores amigos** | Cuántas cuentas de tu lista de Mejores amigos te siguen de vuelta, con las que no te siguen primero y desde cuándo son mejores amigos. |
-| **Seguidores veteranos por año** | Cuántas cuentas te siguen desde cada año, de la más antigua a la más nueva. Tocá un año para ver esas cuentas, y activá **Solo mutuos** para ver únicamente las que vos también seguís. Solo cuenta a quienes te siguen hoy. |
+| **Seguidores veteranos por año** | Cuántas cuentas te siguen desde cada año, de la más antigua a la más nueva. Tocá un año para ver esas cuentas, y activá **Solo mutuos** para ver únicamente las que vos también seguís. Cada cuenta muestra la fecha exacta desde la que te sigue y, si la seguís, desde cuándo, con una aclaración de quién siguió primero. Solo cuenta a quienes te siguen hoy. |
 | **Solicitudes sin respuesta** | Cuentas privadas a las que pediste seguir y todavía no te aceptaron, de la más antigua a la más nueva. |
 | **Le ocultás tus historias** | Cuentas a las que les ocultás tus historias, con la fecha. |
 | **Perfiles favoritos** | Cuentas que marcaste como favoritas, con la fecha. |
