@@ -46,8 +46,8 @@
     // Demo: 20 cuentas famosas reales (abren su perfil) y algunas inventadas para completar las listas.
   // Los números son "hace cuántos días". Las inventadas no llevan a ningún lado.
   const DEMO = [
-    { user: 'cristiano', following: 2300, real: true },
-    { user: 'leomessi', following: 2100, real: true },
+        { user: 'leomessi', following: 2100, real: true, pin: 1 },
+    { user: 'cristiano', following: 2300, real: true, pin: 2 },
     { user: 'selenagomez', following: 1500, real: true },
     { user: 'kyliejenner', following: 1200, real: true },
     { user: 'therock', following: 900, real: true },
@@ -661,6 +661,7 @@
     DEMO.forEach((spec) => {
             const a = newAccount(spec.user);
       a.real = !!spec.real;
+      a.pin = spec.pin || 0;
       if (spec.following != null) {
         a.follows = true;
         a.followingTs = ago(spec.following);
@@ -703,7 +704,14 @@
       } else if (a.unfollowed) dejadas.push(a.user);
     });
 
-    [todos, mutuos, noMeSiguen, noSigo, dejadas].forEach((l) => l.sort());
+  // Las cuentas con prioridad (solo la demo) van primero; el resto, A-Z.
+    const rank = (u) => {
+      const a = accounts.get(u);
+      return a && a.pin ? a.pin : 99;
+    };
+    [todos, mutuos, noMeSiguen, noSigo, dejadas].forEach((l) =>
+      l.sort((x, y) => rank(x) - rank(y) || (x < y ? -1 : x > y ? 1 : 0))
+    );
     return {
       accounts,
       todos,
