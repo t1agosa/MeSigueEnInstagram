@@ -35,7 +35,6 @@
     <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
     <symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M10.6 6.2A9.7 9.7 0 0 1 12 6c4 0 7.3 2.4 9 6a10.6 10.6 0 0 1-2.6 3.4"/><path d="M6.4 6.9A10.6 10.6 0 0 0 3 12c1.7 3.6 5 6 9 6 1.3 0 2.5-.3 3.6-.7"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></symbol>
     <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></symbol>
-    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17" cy="9" r="2.5"/><path d="M17.5 14.2c2.4.3 4 2.2 4 4.8"/></symbol>
   </svg>
 
   <main class="page">
@@ -58,136 +57,129 @@
     <section class="resultados" id="resultados" aria-labelledby="res-titulo" hidden>
       <div class="res-cabecera">
         <h2 class="res-titulo" id="res-titulo">Así se ve tu resultado</h2>
-        <span class="insignia" id="insignia-demo">Ejemplo</span>
         <button type="button" class="boton-chico" id="cambiar" hidden>
           <svg class="icono" aria-hidden="true"><use href="#i-refresh"/></svg>Cambiar archivo
         </button>
       </div>
 
-      <details class="fecha" id="fecha" hidden>
-        <summary>
-          <svg class="icono" aria-hidden="true"><use href="#i-info"/></svg>
-          <span id="fecha-texto">Datos de cuando pediste el archivo</span>
-        </summary>
-        <p>Instagram arma el archivo cuando lo pedís. Si seguiste o dejaste de seguir a alguien después, no aparece. Pedí un archivo nuevo para actualizar.</p>
-      </details>
-
-      <p class="demo-nota" id="demo-nota">Con cuentas inventadas. Probalo: tildá una casilla y activá «Ocultar los que ya revisé».</p>
-
-      <div class="mensaje" id="mensaje-res" role="status" aria-live="polite" hidden></div>
-
-      <div class="metricas">
-        <div class="metrica"><span class="metrica-num" id="total-seguidores">0</span><span class="metrica-etq">te siguen</span></div>
-        <div class="metrica"><span class="metrica-num" id="total-seguidos">0</span><span class="metrica-etq">seguís</span></div>
-      </div>
-
-      <div class="proporcion">
-        <p class="proporcion-etq" id="barra-etiqueta">De las 0 que seguís</p>
-        <div class="barra" aria-hidden="true">
-          <div class="barra-mutuos" id="barra-mutuos"></div>
-          <div class="barra-no" id="barra-no"></div>
-        </div>
-        <ul class="leyenda">
-          <li><span class="punto punto-mutuos" aria-hidden="true"></span><span id="leyenda-mutuos"></span></li>
-          <li><span class="punto punto-no" aria-hidden="true"></span><span id="leyenda-no"></span></li>
-        </ul>
-      </div>
-
-            <details class="acordeon lista-principal" id="lista-principal" open>
-        <summary>
-          <span class="ac-icono"><svg class="icono" aria-hidden="true"><use href="#i-users"/></svg></span>
-          <span class="ac-texto">
-            <span class="ac-titulo">Tus cuentas</span>
-            <span class="ac-sub">Buscá, ordená y revisá cada una</span>
-          </span>
-          <svg class="icono ac-flecha" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-        </summary>
-        <div class="ac-cuerpo">
-        <div class="tabs" role="tablist" aria-label="Listas">
-        <button type="button" role="tab" id="tab-todos" data-lista="todos" aria-label="Todas las cuentas" aria-selected="true" aria-controls="panel">
-          <span class="tab-num" data-num="todos">0</span>
-          <span class="tab-nombre">Todos</span>
-        </button>
-                <button type="button" role="tab" id="tab-mutuos" data-lista="mutuos" aria-label="Mutuos" aria-selected="false" aria-controls="panel" tabindex="-1">
-          <span class="tab-num" data-num="mutuos">0</span>
-          <span class="tab-nombre">Mutuos</span>
-        </button>
-        <button type="button" role="tab" id="tab-dejadas" data-lista="dejadas" aria-label="Cuentas que dejaste de seguir" aria-selected="false" aria-controls="panel" tabindex="-1">
-          <span class="tab-num" data-num="dejadas">0</span>
-          <span class="tab-nombre">Dejaste de seguir</span>
-        </button>
-        <button type="button" role="tab" id="tab-noMeSiguen" data-lista="noMeSiguen" aria-label="No te siguen de vuelta" aria-selected="false" aria-controls="panel" tabindex="-1">
-          <span class="tab-num" data-num="noMeSiguen">0</span>
-          <span class="tab-nombre">No te siguen</span>
-        </button>
-        <button type="button" role="tab" id="tab-noSigo" data-lista="noSigo" aria-label="No los seguís de vuelta" aria-selected="false" aria-controls="panel" tabindex="-1">
-          <span class="tab-num" data-num="noSigo">0</span>
-          <span class="tab-nombre">No seguís</span>
-        </button>
-      </div>
-
-            <div id="panel" role="tabpanel" aria-labelledby="tab-todos">
-        <p id="ayuda-lista" class="ayuda-lista"></p>
-                <p id="aviso-limite" class="aviso-limite" hidden>Andá de a poco: dejar de seguir a muchas cuentas de golpe puede limitarte la cuenta.</p>
-
-        <details class="fecha aviso-perfil">
-          <summary>
+      <div class="res-card">
+        <div class="res-identidad">
+          <h3 class="res-usuario" id="res-usuario" hidden></h3>
+          <span class="insignia" id="insignia-demo">Ejemplo</span>
+          <button type="button" class="chip-datos" id="fecha" aria-expanded="false" aria-controls="fecha-detalle" hidden>
             <svg class="icono" aria-hidden="true"><use href="#i-info"/></svg>
-            <span>¿Un perfil no abre?</span>
-          </summary>
-          <p>Si al abrir un perfil Instagram dice «Esta página no está disponible», puede ser que la persona haya pausado o desactivado su cuenta, que haya cambiado de usuario o que te haya bloqueado. Desde acá no se puede saber cuál. Para distinguirlo, abrí ese mismo enlace desde otra cuenta (o sin iniciar sesión): si tampoco se ve, la cuenta está desactivada o ya no existe. Si se ve ahí pero no en la tuya, es probable que te haya bloqueado.</p>
-        </details>
+            <span id="fecha-texto">Datos de cuando pediste el archivo</span>
+          </button>
+        </div>
+        <p class="fecha-detalle" id="fecha-detalle" hidden>Instagram arma el archivo cuando lo pedís. Si seguiste o dejaste de seguir a alguien después, no aparece. Pedí un archivo nuevo para actualizar.</p>
 
-                <div class="herramientas">
-          <div class="buscar-fila">
-            <div class="buscador">
-              <svg class="icono" aria-hidden="true"><use href="#i-search"/></svg>
-              <input id="buscar" type="search" placeholder="Buscar usuario" aria-label="Buscar usuario" autocomplete="off" autocapitalize="off" spellcheck="false">
-            </div>
-            <button type="button" class="boton-filtros" id="filtros-boton" aria-expanded="false" aria-controls="filtros">
-              <svg class="icono" aria-hidden="true"><use href="#i-sliders"/></svg>Filtros
-              <span class="filtros-punto" id="filtros-punto" aria-hidden="true" hidden></span>
-            </button>
+        <p class="demo-nota" id="demo-nota">Con cuentas inventadas. Tocá «Expandir sección» y probalo: tildá una casilla y activá «Ocultar los que ya revisé».</p>
+
+        <div class="mensaje" id="mensaje-res" role="status" aria-live="polite" hidden></div>
+
+        <div class="metricas">
+          <div class="metrica"><span class="metrica-num" id="total-seguidores">0</span><span class="metrica-etq">Seguidores</span></div>
+          <div class="metrica"><span class="metrica-num" id="total-seguidos">0</span><span class="metrica-etq">Seguidos</span></div>
+        </div>
+
+        <div class="proporcion">
+          <p class="proporcion-etq" id="barra-etiqueta">De las 0 que seguís</p>
+          <div class="barra" aria-hidden="true">
+            <div class="barra-mutuos" id="barra-mutuos"></div>
+            <div class="barra-no" id="barra-no"></div>
           </div>
-          <label class="interruptor">
-            <input id="ocultar" class="sr-only" type="checkbox" role="switch">
-            <span class="pista" aria-hidden="true"></span>
-            <span>Ocultar los que ya revisé</span>
-          </label>
+          <ul class="leyenda">
+            <li><span class="punto punto-mutuos" aria-hidden="true"></span><span id="leyenda-mutuos"></span></li>
+            <li><span class="punto punto-no" aria-hidden="true"></span><span id="leyenda-no"></span></li>
+          </ul>
         </div>
 
-        <div class="filtros" id="filtros" hidden>
-          <fieldset class="orden">
-            <legend>Ordenar</legend>
-            <div class="orden-opciones">
-              <label class="orden-opcion">
-                <input class="sr-only" type="radio" name="orden" value="az" checked>
-                <span>A–Z</span>
-              </label>
-              <label class="orden-opcion">
-                <input class="sr-only" type="radio" name="orden" value="recent">
-                <span><svg class="icono" aria-hidden="true"><use href="#i-arrow-down"/></svg>Más recientes primero</span>
-              </label>
-              <label class="orden-opcion">
-                <input class="sr-only" type="radio" name="orden" value="old">
-                <span><svg class="icono" aria-hidden="true"><use href="#i-arrow-up"/></svg>Más antiguas primero</span>
-              </label>
+        <div class="tabs" role="tablist" aria-label="Listas">
+          <button type="button" role="tab" id="tab-todos" data-lista="todos" aria-label="Todas las cuentas" aria-selected="true" aria-controls="panel">
+            <span class="tab-num" data-num="todos">0</span>
+            <span class="tab-nombre">Todos</span>
+          </button>
+          <button type="button" role="tab" id="tab-mutuos" data-lista="mutuos" aria-label="Mutuos" aria-selected="false" aria-controls="panel" tabindex="-1">
+            <span class="tab-num" data-num="mutuos">0</span>
+            <span class="tab-nombre">Mutuos</span>
+          </button>
+          <button type="button" role="tab" id="tab-dejadas" data-lista="dejadas" aria-label="Cuentas que dejaste de seguir" aria-selected="false" aria-controls="panel" tabindex="-1">
+            <span class="tab-num" data-num="dejadas">0</span>
+            <span class="tab-nombre">Dejaste de seguir</span>
+          </button>
+          <button type="button" role="tab" id="tab-noMeSiguen" data-lista="noMeSiguen" aria-label="No te siguen de vuelta" aria-selected="false" aria-controls="panel" tabindex="-1">
+            <span class="tab-num" data-num="noMeSiguen">0</span>
+            <span class="tab-nombre">No te siguen</span>
+          </button>
+          <button type="button" role="tab" id="tab-noSigo" data-lista="noSigo" aria-label="No los seguís de vuelta" aria-selected="false" aria-controls="panel" tabindex="-1">
+            <span class="tab-num" data-num="noSigo">0</span>
+            <span class="tab-nombre">No seguís</span>
+          </button>
+        </div>
+
+        <div id="panel" role="tabpanel" aria-labelledby="tab-todos" hidden>
+          <p id="ayuda-lista" class="ayuda-lista"></p>
+          <p id="aviso-limite" class="aviso-limite" hidden>Andá de a poco: dejar de seguir a muchas cuentas de golpe puede limitarte la cuenta.</p>
+
+          <details class="fecha aviso-perfil">
+            <summary>
+              <svg class="icono" aria-hidden="true"><use href="#i-info"/></svg>
+              <span>¿Un perfil no abre?</span>
+            </summary>
+            <p>Si al abrir un perfil Instagram dice «Esta página no está disponible», puede ser que la persona haya pausado o desactivado su cuenta, que haya cambiado de usuario o que te haya bloqueado. Desde acá no se puede saber cuál. Para distinguirlo, abrí ese mismo enlace desde otra cuenta (o sin iniciar sesión): si tampoco se ve, la cuenta está desactivada o ya no existe. Si se ve ahí pero no en la tuya, es probable que te haya bloqueado.</p>
+          </details>
+
+          <div class="herramientas">
+            <div class="buscar-fila">
+              <div class="buscador">
+                <svg class="icono" aria-hidden="true"><use href="#i-search"/></svg>
+                <input id="buscar" type="search" placeholder="Buscar usuario" aria-label="Buscar usuario" autocomplete="off" autocapitalize="off" spellcheck="false">
+              </div>
+              <button type="button" class="boton-filtros" id="filtros-boton" aria-expanded="false" aria-controls="filtros">
+                <svg class="icono" aria-hidden="true"><use href="#i-sliders"/></svg>Filtros
+                <span class="filtros-punto" id="filtros-punto" aria-hidden="true" hidden></span>
+              </button>
             </div>
-          </fieldset>
-          <p class="filtros-fecha" id="filtros-fecha"></p>
+            <label class="interruptor">
+              <input id="ocultar" class="sr-only" type="checkbox" role="switch">
+              <span class="pista" aria-hidden="true"></span>
+              <span>Ocultar los que ya revisé</span>
+            </label>
+          </div>
+
+          <div class="filtros" id="filtros" hidden>
+            <fieldset class="orden">
+              <legend>Ordenar</legend>
+              <div class="orden-opciones">
+                <label class="orden-opcion">
+                  <input class="sr-only" type="radio" name="orden" value="az" checked>
+                  <span>A–Z</span>
+                </label>
+                <label class="orden-opcion">
+                  <input class="sr-only" type="radio" name="orden" value="recent">
+                  <span><svg class="icono" aria-hidden="true"><use href="#i-arrow-down"/></svg>Más recientes primero</span>
+                </label>
+                <label class="orden-opcion">
+                  <input class="sr-only" type="radio" name="orden" value="old">
+                  <span><svg class="icono" aria-hidden="true"><use href="#i-arrow-up"/></svg>Más antiguas primero</span>
+                </label>
+              </div>
+            </fieldset>
+            <p class="filtros-fecha" id="filtros-fecha"></p>
+          </div>
+
+          <p id="conteo" class="conteo" aria-live="polite"></p>
+          <p id="aviso-storage" class="aviso-storage" hidden>Tu navegador no deja guardar las casillas. Se van a perder al cerrar la página.</p>
+
+          <ul id="lista" class="lista"></ul>
+          <p id="vacio" class="vacio" hidden></p>
+          <button type="button" id="mas" class="boton-secundario" hidden>Mostrar más</button>
+
+          <button type="button" id="borrar-marcas" class="boton-texto" hidden>Borrar mis casillas marcadas</button>
         </div>
 
-        <p id="conteo" class="conteo" aria-live="polite"></p>
-        <p id="aviso-storage" class="aviso-storage" hidden>Tu navegador no deja guardar las casillas. Se van a perder al cerrar la página.</p>
-
-        <ul id="lista" class="lista"></ul>
-        <p id="vacio" class="vacio" hidden></p>
-        <button type="button" id="mas" class="boton-secundario" hidden>Mostrar más</button>
+        <button type="button" class="boton-secundario boton-alternar" id="alternar-lista" aria-expanded="false" aria-controls="panel">Expandir sección</button>
       </div>
-
-      <button type="button" id="borrar-marcas" class="boton-texto" hidden>Borrar mis casillas marcadas</button>
-        </div>
-      </details>
     </section>
 
     <section class="subida" id="subida" aria-label="Subir archivo">
