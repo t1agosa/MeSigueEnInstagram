@@ -223,6 +223,17 @@
     return svg;
   }
 
+    // «Abrir perfil» en PC y «Perfil» en celular (el CSS muestra uno u otro).
+  function openLabel() {
+    const long = document.createElement('span');
+    long.className = 'abrir-largo';
+    long.textContent = 'Abrir perfil';
+    const short = document.createElement('span');
+    short.className = 'abrir-corto';
+    short.textContent = 'Perfil';
+    return [long, short];
+  }
+
   function avatarIndex(user) {
     let h = 0;
     for (let i = 0; i < user.length; i += 1) h = (h * 31 + user.charCodeAt(i)) >>> 0;
@@ -957,8 +968,8 @@
     } else if (state.mode === 'demo') {
       action = document.createElement('span');
       action.className = 'abrir';
-      action.setAttribute('aria-hidden', 'true');
-      action.append('Abrir perfil', icon('external'));
+            action.setAttribute('aria-hidden', 'true');
+      action.append(...openLabel(), icon('external'));
     } else {
       action = document.createElement('a');
       action.className = 'abrir';
@@ -966,9 +977,8 @@
       action.target = '_blank';
       action.rel = 'noopener noreferrer';
       action.setAttribute('aria-label', `Abrir el perfil de ${user} en Instagram`);
-      action.append('Abrir perfil', icon('external'));
+      action.append(...openLabel(), icon('external'));
     }
-
     top.append(label, avatar, name, action);
 
     const info = document.createElement('div');
@@ -1170,8 +1180,9 @@
       action.target = '_blank';
       action.rel = 'noopener noreferrer';
       action.setAttribute('aria-label', `Abrir el perfil de ${user} en Instagram`);
-      action.append('Abrir perfil', icon('external'));
+            action.append(...openLabel(), icon('external'));
     }
+
     top.append(label, avatar, name, action);
 
     const info = h('div', 'fila-info');
