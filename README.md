@@ -83,12 +83,13 @@ También podés subir los archivos `followers_1.json` y `following.json` sueltos
 
 Arriba de todo, la página muestra cuántas cuentas te siguen, a cuántas seguís y una barra con la parte de tus seguidos que te sigue de vuelta.
 
-Abajo hay cuatro listas:
+Abajo hay cinco listas:
 
 | Lista | Qué muestra |
 |---|---|
 | **Todos** | Todas tus cuentas en una sola lista: las que seguís, las que te siguen y las que dejaste de seguir hace poco. Buscá un usuario y mirá cómo es la relación. |
 | **Mutuos** | Cuentas que se siguen entre sí. |
+| **Dejaste de seguir** | Cuentas que dejaste de seguir hace poco y que no te siguen. Instagram solo guarda los últimos meses. Las que sí te siguen están en «No seguís». |
 | **No te siguen** | Cuentas que seguís vos y no te siguen a vos. |
 | **No seguís** | Cuentas que te siguen a vos y vos no seguís. |
 
