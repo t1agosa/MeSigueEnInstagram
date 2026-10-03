@@ -7,7 +7,7 @@
    * ------------------------------------------------------------------ */
 
   const STORAGE_KEY = 'comparador-seguidores:revisados';
-  const PAGE_SIZE = 200;
+  const PAGE_SIZE = 10;
   const MAX_ZIP_BYTES = 200 * 1024 * 1024;
   const USERNAME_RE = /^[a-z0-9._]{1,30}$/;
   const USER_LABEL_RE = /usuario|username|user name|utilisateur|utente|benutzer/i;
@@ -16,7 +16,7 @@
   const AVATAR_VARIANTS = 6;
   const OPTIONAL_KINDS = ['unfollowed', 'closeFriends', 'pending', 'hideStory', 'favorites'];
   const MAS_PAGE = 10; // cuentas que se ven al abrir cada sección de «Más sobre tu cuenta»
-  const MAS_MORE = 20; // cuentas que suma cada «Mostrar más»
+  const MAS_MORE = 10; // cuentas que suma cada «Mostrar más»
   const SVG_NS = 'http://www.w3.org/2000/svg';
 
   const AYUDA_LISTA = {
@@ -188,8 +188,13 @@
     return n === 1 ? uno : otros;
   }
 
-  function fmt(n) {
+    function fmt(n) {
     return Number(n).toLocaleString('es-AR');
+  }
+
+  function moreLabel(remaining, step) {
+    const n = Math.min(step, remaining);
+    return `Mostrar ${fmt(n)} ${plural(n, 'cuenta', 'cuentas')} más`;
   }
 
   function formatDate(d) {
@@ -1024,8 +1029,8 @@
       el.vacio.hidden = true;
     }
 
-    el.mas.hidden = items.length <= shown.length;
-    if (!el.mas.hidden) el.mas.textContent = `Mostrar más (faltan ${fmt(items.length - shown.length)})`;
+        el.mas.hidden = items.length <= shown.length;
+    if (!el.mas.hidden) el.mas.textContent = moreLabel(items.length - shown.length, PAGE_SIZE);
   }
 
   /* ------------------------ Más sobre tu cuenta ---------------------- */
@@ -1248,8 +1253,8 @@
       empty.hidden = items.length > 0;
       if (!items.length) empty.textContent = q ? `Ninguna cuenta coincide con «${ui.query.trim()}».` : 'No hay cuentas para mostrar.';
 
-      more.hidden = items.length <= shown.length;
-      if (!more.hidden) more.textContent = `Mostrar más (faltan ${fmt(items.length - shown.length)})`;
+            more.hidden = items.length <= shown.length;
+      if (!more.hidden) more.textContent = moreLabel(items.length - shown.length, MAS_MORE);
     }
 
     input.addEventListener('input', () => {
