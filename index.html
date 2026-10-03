@@ -29,7 +29,12 @@
         <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4l9 16H3z"/><path d="M12 10v4"/><path d="M12 17v.01"/></symbol>
     <symbol id="i-sliders" viewBox="0 0 24 24"><circle cx="14" cy="6" r="2"/><path d="M4 6h8"/><path d="M16 6h4"/><circle cx="8" cy="12" r="2"/><path d="M4 12h2"/><path d="M10 12h10"/><circle cx="17" cy="18" r="2"/><path d="M4 18h11"/><path d="M19 18h1"/></symbol>
     <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M18 13l-6 6-6-6"/></symbol>
-    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5"/><path d="M18 11l-6-6-6 6"/></symbol>
+        <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5"/><path d="M18 11l-6-6-6 6"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.5 5.9.7-4.3 4 1.1 5.8L12 16.7 6.7 19.5l1.1-5.8-4.3-4 5.9-.7z"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16"/><path d="M8 3v4"/><path d="M16 3v4"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M10.6 6.2A9.7 9.7 0 0 1 12 6c4 0 7.3 2.4 9 6a10.6 10.6 0 0 1-2.6 3.4"/><path d="M6.4 6.9A10.6 10.6 0 0 0 3 12c1.7 3.6 5 6 9 6 1.3 0 2.5-.3 3.6-.7"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></symbol>
   </svg>
 
   <main class="page">
@@ -191,6 +196,11 @@
       <p class="ir-guia">¿Todavía no tenés el archivo? <a href="#como-funciona">Mirá el paso a paso</a></p>
     </section>
 
+        <section class="mas" id="mas" aria-labelledby="mas-titulo" hidden>
+      <h2 class="mas-titulo" id="mas-titulo">Más sobre tu cuenta</h2>
+      <div id="mas-lista"></div>
+    </section>
+
     <aside class="cartel" aria-label="Advertencia de seguridad">
       <span class="cartel-icono"><svg class="icono" aria-hidden="true"><use href="#i-alert"/></svg></span>
       <p><strong>Nunca pongas tu contraseña de Instagram en otra página.</strong> Muchas herramientas te piden usuario y contraseña y pueden robarte la cuenta. Esta no la necesita.</p>
@@ -291,6 +301,10 @@
                         <details class="pregunta">
           <summary>Abro un perfil y dice «Esta página no está disponible»</summary>
           <p>Si al abrir un perfil Instagram dice «Esta página no está disponible», puede ser que la persona haya pausado o desactivado su cuenta, que haya cambiado de usuario o que te haya bloqueado. Desde acá no se puede saber cuál. Para distinguirlo, abrí ese mismo enlace desde otra cuenta (o sin iniciar sesión): si tampoco se ve, la cuenta está desactivada o ya no existe. Si se ve ahí pero no en la tuya, es probable que te haya bloqueado.</p>
+        </details>
+                <details class="pregunta">
+          <summary>¿Se puede saber quién vio mi perfil?</summary>
+          <p>No. Instagram no ofrece ninguna función para ver quién visitó tu perfil, y ese dato tampoco está en la exportación. Lo único que muestra es quién vio tus historias, dentro de la app y mientras siguen disponibles. Las aplicaciones y páginas que prometen mostrar quién visitó tu perfil son estafas, y muchas buscan que les des tu contraseña.</p>
         </details>
         <details class="pregunta">
           <summary>¿Qué significan los puntitos verdes y rojos?</summary>
