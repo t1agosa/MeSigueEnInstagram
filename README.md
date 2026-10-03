@@ -1,6 +1,6 @@
 # Mirá quién no te sigue de vuelta en Instagram
 
-Una página para ver **a quién seguís que no te sigue**, a quién **no seguís de vuelta** y quiénes se siguen entre sí.
+Una página para ver **a quién seguís que no te sigue**, a quién **no seguís de vuelta**, quiénes se siguen entre sí y **desde cuándo**.
 
 👉 **Usala acá:** https://t1agosa.github.io/MeSigueEnInstagram/
 
@@ -33,28 +33,37 @@ Necesitás unos 5 minutos. Podés hacerlo desde el celular o desde la computador
 
 En Instagram, seguí este camino:
 
-**Perfil › ☰ Tres rayitas › Centro de cuentas › Tu información y permisos › Exportar información › Crear exportación › Elegí tu usuario › Exportar al dispositivo**
+**Perfil › ☰ Menú de las tres rayitas › Centro de cuentas › Tu información y permisos › Exportar tu información › Crear exportación › Elegí tu usuario de Instagram**
+
+Después, elegí una de estas dos opciones:
+
+| Opción | Qué hace |
+|---|---|
+| **Exportar al dispositivo** | Lo descarga a tu celular o computadora. |
+| **Exportar a un servicio externo** | Lo subís a Google Drive. Te pide elegir la frecuencia (elegí **Una vez**) y conectar tu cuenta de Drive. |
 
 ### Paso 2. Elegí estos ajustes
 
 | En este campo | Elegí |
 |---|---|
-| **Personalizar información** | Destildá todo y dejá tildado **solo** ✅ **Seguidores y seguidos** |
+| **Personalizar información** | **Seguidores y seguidos** (destildá todo lo demás) |
 | **Intervalo de fechas** | **Desde el principio** si lo hacés desde el celular, o **Cualquier fecha** si lo hacés desde la computadora |
-| **Formato** | **JSON** |
+| **Formato** | **JSON** (con HTML la página no puede mostrar las fechas) |
 | **Calidad del contenido multimedia** | **Calidad media** (da igual para lo que queremos hacer) |
 
 > No elijas otro intervalo de fechas: Instagram te daría solo una parte de la lista.
 
 ### Paso 3. Iniciá la exportación
 
-Tocá **Iniciar exportación**. Si te pide la contraseña, ponela tranquilo: es seguro porque estás dentro de Instagram.
+Tocá **Iniciar exportación**. Si te pide la contraseña, ponela tranqui: es seguro porque estás dentro de Instagram. Si estás en la computadora, fijate que la dirección sea instagram.com.
 
 ### Paso 4. Esperá y descargá
 
 No debería tardar mucho. Si tarda, podés volver más tarde.
 
 Cuando aparezca el botón **Descargar** junto a tu solicitud, tocalo. Si no aparece, actualizá la página del navegador.
+
+Si elegiste Google Drive, no vas a ver ese botón: cuando termine, el archivo aparece en tu Drive. Descargalo desde ahí y subilo a la página.
 
 Se descarga un **.zip**. **No hace falta abrirlo ni descomprimirlo.**
 
@@ -70,20 +79,44 @@ También podés subir los archivos `followers_1.json` y `following.json` sueltos
 
 ---
 
-## Qué podés hacer con los resultados
+## Qué vas a ver
 
-La página muestra cuántos te siguen, a cuántos seguís y qué parte de las cuentas que seguís te sigue de vuelta. Y tiene tres listas:
+Arriba de todo, la página muestra cuántas cuentas te siguen, a cuántas seguís y una barra con la parte de tus seguidos que te sigue de vuelta.
 
-| Lista | Qué significa |
+Abajo hay cuatro listas:
+
+| Lista | Qué muestra |
 |---|---|
+| **Todos** | Todas tus cuentas en una sola lista: las que seguís, las que te siguen y las que dejaste de seguir hace poco. Buscá un usuario y mirá cómo es la relación. |
+| **Mutuos** | Cuentas que se siguen entre sí. |
 | **No te siguen** | Cuentas que seguís vos y no te siguen a vos. |
 | **No seguís** | Cuentas que te siguen a vos y vos no seguís. |
-| **Mutuos** | Cuentas que se siguen entre sí. |
 
-En cada lista podés:
+### Dos frases por cuenta
+
+Cada cuenta muestra dos frases, cada una con un puntito:
+
+- 🟢 **Verde**: el vínculo existe.
+- 🔴 **Rojo**: el vínculo no existe.
+
+| Situación | Primera frase | Segunda frase |
+|---|---|---|
+| La seguís y no te sigue | 🟢 Seguís esta cuenta desde 12/04/2026. | 🔴 No te sigue. |
+| Te sigue y no la seguís | 🔴 No seguís esta cuenta. | 🟢 Te sigue desde 12/04/2026. |
+| La dejaste de seguir hace poco | 🔴 Dejaste de seguir esta cuenta el 13/09/2026. | 🟢 Te sigue desde hace más de un año. |
+| Se siguen | 🟢 Se siguen desde 21/06/2026. | 🟢 Te siguió primero. |
+| La cuenta ya no existe | 🔴 Esta cuenta ya no existe. | 🔴 La seguías desde hace más de un año. |
+
+En una cuenta mutua, la segunda frase puede ser «Te siguió primero.», «La seguiste primero.» o «Se siguieron el mismo día.».
+
+**Las fechas:** si pasó menos de un año, aparece la fecha exacta (día/mes/año). Si pasó más, dice «más de N años» (por ejemplo, «hace más de 3 años»).
+
+**Cuentas eliminadas:** Instagram las marca así en el archivo. Aparecen con la etiqueta **Eliminada** y sin botón de perfil, porque ya no hay perfil al que ir.
+
+### En cada lista podés
 
 - **Buscar** a alguien por su usuario.
-- Tocar **Abrir perfil** para ir a su perfil en Instagram. Ahí tocás **Siguiendo** y después **Dejar de seguir** (o **Seguir**, según la lista).
+- Tocar **Abrir perfil** para ir a su perfil en Instagram. Ahí tocás **Siguiendo** y después **Dejar de seguir** (o **Seguir**, según el caso).
 - Marcar la casilla ☑ cuando **ya lo revisaste**. Queda tachado, y si volvés otro día y subís el archivo de nuevo, **sigue tachado**. Esas marcas se guardan solo en tu navegador.
 - Activar **Ocultar los que ya revisé** para ver únicamente los que te faltan.
 
@@ -91,9 +124,26 @@ En cada lista podés:
 
 Arriba de los resultados aparece la fecha en que Instagram preparó tu archivo («Datos del 2 oct, 11:28»). Si seguiste o dejaste de seguir a alguien después, no aparece: pedí un archivo nuevo para actualizar.
 
+### Lo que la página no puede saber
+
+El archivo de Instagram trae tus listas **de hoy**, no el historial. Por eso:
+
+- **No puede saber si una cuenta te dejó de seguir.** «No te sigue» significa que hoy no te sigue, pero puede ser que nunca lo haya hecho. Quien se fue desaparece de tu lista de seguidores sin dejar fecha.
+- **No puede saber si una cuenta cambió de usuario.** Cada cuenta aparece con el nombre que tiene el día de la exportación.
+- **Solo ve a quién dejaste de seguir en los últimos meses.** Instagram no guarda más que eso. Si una cuenta no figura, la página dice «No seguís esta cuenta» y no «Nunca la seguiste».
+- **«Te siguió primero» compara las fechas del vínculo actual.** Si alguien dejó de seguirte y después volvió a seguirte, cuenta la última vez.
+
+Lo que sí sabe, y muestra, es desde cuándo seguís vos a cada cuenta y desde cuándo te sigue ella.
+
 ---
 
 ## Preguntas frecuentes
+
+**¿Qué significan los puntitos verdes y rojos?**
+Cada cuenta tiene dos frases. El puntito verde indica que el vínculo existe (por ejemplo, «Seguís esta cuenta» o «Te sigue»). El rojo indica que no existe (por ejemplo, «No te sigue»). Las fechas son exactas si pasó menos de un año, y si pasó más dice «más de N años».
+
+**¿Por qué no dice desde cuándo una cuenta dejó de seguirme?**
+Instagram no guarda ese dato. El archivo trae solo a quienes te siguen hoy, y quien se fue desaparece de la lista sin fecha. Lo que sí figura es desde cuándo seguís vos a cada cuenta y a quién dejaste de seguir en los últimos meses. Tampoco se puede saber si una cuenta cambió de usuario.
 
 **Los números no coinciden con los de mi perfil.**
 Instagram arma el archivo en el momento en que lo pedís. Todo lo que hagas después (seguir o dejar de seguir a alguien) no aparece. Podés seguir usando la lista y marcar las casillas, o pedir un archivo nuevo. Las casillas que ya marcaste se mantienen, porque se guardan en tu navegador.
@@ -128,6 +178,8 @@ No. La página nunca se conecta con Instagram. Solo lee los archivos que vos le 
 
 Es una web estática sin dependencias ni proceso de compilación: `index.html`, `app.js`, `style.css` y `jszip.min.js` (JSZip 3.10.1, incluida en el repo para no depender de ningún CDN).
 
+- De la exportación lee `followers_*.json`, `following.json` y `recently_unfollowed_profiles.json` (también sus versiones `.html`, pero sin fechas). Los demás archivos del .zip los ignora.
+- Entiende los dos formatos que usa Instagram: el clásico (`string_list_data`) y el nuevo (`label_values`), con las etiquetas en el idioma de la cuenta.
 - La página tiene una política de seguridad (`Content-Security-Policy`) que **bloquea cualquier conexión de red**, así que el código no podría enviar tus datos aunque quisiera.
 - Para probarla en tu máquina, abrí `index.html` en el navegador o levantá un servidor simple, por ejemplo `python3 -m http.server`.
 - Para publicarla: subí estos archivos a un repositorio de GitHub y activá **Settings → Pages → Deploy from a branch → main / (root)**.
