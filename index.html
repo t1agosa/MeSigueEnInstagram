@@ -84,8 +84,16 @@
         </ul>
       </div>
 
-      <div class="tabs" role="tablist" aria-label="Listas">
-        <button type="button" role="tab" id="tab-noMeSiguen" data-lista="noMeSiguen" aria-label="No te siguen de vuelta" aria-selected="true" aria-controls="panel">
+            <div class="tabs" role="tablist" aria-label="Listas">
+        <button type="button" role="tab" id="tab-todos" data-lista="todos" aria-label="Todas las cuentas" aria-selected="true" aria-controls="panel">
+          <span class="tab-num" data-num="todos">0</span>
+          <span class="tab-nombre">Todos</span>
+        </button>
+        <button type="button" role="tab" id="tab-mutuos" data-lista="mutuos" aria-label="Mutuos" aria-selected="false" aria-controls="panel" tabindex="-1">
+          <span class="tab-num" data-num="mutuos">0</span>
+          <span class="tab-nombre">Mutuos</span>
+        </button>
+        <button type="button" role="tab" id="tab-noMeSiguen" data-lista="noMeSiguen" aria-label="No te siguen de vuelta" aria-selected="false" aria-controls="panel" tabindex="-1">
           <span class="tab-num" data-num="noMeSiguen">0</span>
           <span class="tab-nombre">No te siguen</span>
         </button>
@@ -93,13 +101,9 @@
           <span class="tab-num" data-num="noSigo">0</span>
           <span class="tab-nombre">No seguís</span>
         </button>
-        <button type="button" role="tab" id="tab-mutuos" data-lista="mutuos" aria-label="Mutuos" aria-selected="false" aria-controls="panel" tabindex="-1">
-          <span class="tab-num" data-num="mutuos">0</span>
-          <span class="tab-nombre">Mutuos</span>
-        </button>
       </div>
 
-      <div id="panel" role="tabpanel" aria-labelledby="tab-noMeSiguen">
+            <div id="panel" role="tabpanel" aria-labelledby="tab-todos">
         <p id="ayuda-lista" class="ayuda-lista"></p>
         <p id="aviso-limite" class="aviso-limite" hidden>Andá de a poco: dejar de seguir a muchas cuentas de golpe puede limitarte la cuenta.</p>
 
@@ -242,6 +246,14 @@
       </summary>
 
       <div class="ac-cuerpo">
+                <details class="pregunta">
+          <summary>¿Qué significan los puntitos verdes y rojos?</summary>
+          <p>Cada cuenta tiene dos frases. El puntito verde indica que el vínculo existe (por ejemplo, «Seguís esta cuenta» o «Te sigue»). El rojo indica que no existe (por ejemplo, «No te sigue»). Las fechas son exactas si pasó menos de un año, y si pasó más dice «más de N años».</p>
+        </details>
+        <details class="pregunta">
+          <summary>¿Por qué no dice desde cuándo una cuenta dejó de seguirme?</summary>
+          <p>Instagram no guarda ese dato. El archivo trae solo a quienes te siguen hoy, y quien se fue desaparece de la lista sin fecha. Lo que sí figura es desde cuándo seguís vos a cada cuenta y a quién dejaste de seguir en los últimos meses. Tampoco se puede saber si una cuenta cambió de usuario.</p>
+        </details>
         <details class="pregunta">
           <summary>Los números no coinciden con los de mi perfil</summary>
           <p>Instagram arma el archivo en el momento en que lo pedís. Todo lo que hagas después (seguir o dejar de seguir a alguien) no aparece. Podés seguir usando la lista y marcar las casillas, o pedir un archivo nuevo. Las casillas que ya marcaste se mantienen, porque se guardan en tu navegador.</p>
